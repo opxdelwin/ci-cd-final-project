@@ -1,0 +1,37 @@
+(venv) theia:project$ gh run list
+failed to determine base repo: failed to run git: fatal: not a git repository (or any parent up to mount point /home)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+
+(venv) theia:project$ cd ci-cd-final-project/
+(venv) theia:ci-cd-final-project$ gh run list
+STATUS  TITLE                    WORKFLOW     BRANCH  EVENT  ID           ELAPSED  AGE            
+✓       Add test step to CI ...  CI workflow  main    push   29599052822  28s      about 9 minu...
+✓       Add lint step to CI ...  CI workflow  main    push   29599005868  29s      about 8 minu...
+X       Add basic CI workflow    CI workflow  main    push   29598951737  5s       about 15 min...
+X       abc                      CI workflow  main    push   29598898342  0s       about 15 min...
+X       Initial commit           CI workflow  main    push   29598488159  0s       about 22 min...
+(venv) theia:ci-cd-final-project$ gh run view 29599052822 --verbose
+
+✓ main CI workflow · 29599052822
+Triggered via push about 9 minutes ago
+
+JOBS
+✓ build in 22s (ID 87947298379)
+  ✓ Set up job
+  ✓ Initialize containers
+  ✓ Checkout
+  ✓ Install dependencies
+  ✓ Lint with flake8
+  ✓ Run unit tests with nose
+  ✓ Post Checkout
+  ✓ Stop containers
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v3. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+build: .github#2
+
+
+For more information about the job, try: gh run view --job=87947298379
+View this run on GitHub: https://github.com/opxdelwin/ci-cd-final-project/actions/runs/29599052822
+(venv) theia:ci-cd-final-project$ 
